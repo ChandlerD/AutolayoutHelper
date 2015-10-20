@@ -19,21 +19,7 @@
 
 - (void)pinToAllSidesOfParent
 {
-    [self pinToSuperviewWithAttribute:NSLayoutAttributeBottom
-                           multiplier:1.0
-                             constant:0.0];
-    
-    [self pinToSuperviewWithAttribute:NSLayoutAttributeTop
-                           multiplier:1.0
-                             constant:0.0];
-    
-    [self pinToSuperviewWithAttribute:NSLayoutAttributeLeading
-                           multiplier:1.0
-                             constant:0.0];
-    
-    [self pinToSuperviewWithAttribute:NSLayoutAttributeTrailing
-                           multiplier:1.0
-                             constant:0.0];
+    [self pinToEdgesOfParent:TopEdge|RightEdge|BottomEdge|LeftEdge];
 }
 
 - (NSLayoutConstraint *)pinToEdgeOfParent:(NSLayoutAttribute)attribute spacing:(CGFloat)spacing
@@ -46,6 +32,25 @@
 - (NSLayoutConstraint *)pinToEdgeOfParent:(NSLayoutAttribute)attribute
 {
     return [self pinToEdgeOfParent:attribute spacing:0.0];
+}
+
+- (void)pinToEdgesOfParent:(SuperviewEdges)edges
+{
+    if (edges & TopEdge) {
+        [self pinToEdgeOfParent:NSLayoutAttributeTop];
+    }
+    
+    if (edges & RightEdge) {
+        [self pinToEdgeOfParent:NSLayoutAttributeRight];
+    }
+    
+    if (edges & BottomEdge) {
+        [self pinToEdgeOfParent:NSLayoutAttributeBottom];
+    }
+    
+    if (edges & LeftEdge) {
+        [self pinToEdgeOfParent:NSLayoutAttributeLeft];
+    }
 }
 
 - (NSLayoutConstraint *)pinToSuperviewWithAttribute:(NSLayoutAttribute)attribute
