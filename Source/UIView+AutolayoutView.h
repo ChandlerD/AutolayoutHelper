@@ -5,6 +5,15 @@
 //  Copyright (c) 2015 Flipagram LLC. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
+typedef NS_OPTIONS(NSInteger, SuperviewEdges) {
+    LeftEdge = 1 << 0,
+    TopEdge = 1 << 1,
+    RightEdge = 1 << 2,
+    BottomEdge = 1 << 3
+};
+
 @interface UIView (AutolayoutView)
 
 + (instancetype)autolayoutView;
@@ -15,7 +24,7 @@
 
 - (NSLayoutConstraint *)pinToEdgeOfParent:(NSLayoutAttribute)attribute;
 
-- (void)pinToEdgesOfParent:(NSArray *)edges;
+- (void)pinToEdgesOfParent:(SuperviewEdges)edges;
 
 - (NSLayoutConstraint *)pinToSuperviewWithAttribute:(NSLayoutAttribute)attribute
                          multiplier:(CGFloat)multiplier

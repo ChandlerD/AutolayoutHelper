@@ -306,6 +306,7 @@
 				36F764D21BD6B2670008471D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
