@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/ChandlerD/AutolayoutHelper.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
-  s.source_files = 'Pod/Classes/*.{h,m}'
+  s.source_files = 'Source/*.{h,m}'
 end
